@@ -11,8 +11,9 @@ function printError(err){
 }
 
 function weatherHandler(data){
+    $('.location').html(data.name+', '+data.sys.country);
     $('.temp').html(data.main.temp);
-    $('.unit').html("C");
+    $('.unit').html("C&deg;");
     $('.weatherDesc').html(data.weather[0].description);
     $('.iconSrc').attr("src","http://openweathermap.org/img/w/"+data.weather[0].icon+".png")
 }
@@ -40,4 +41,5 @@ function getWeather(lat,lon){
 
 $(document).ready(function(){
     getLocation();
+
 });

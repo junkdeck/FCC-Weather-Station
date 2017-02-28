@@ -1,4 +1,50 @@
 *{
-	margin: 0;
-	padding: 0;
+	margin:0;
+	padding:0;
+}
+
+html,body{
+	height:100%;
+}
+
+body{
+	background:linear-gradient(0deg,#a3bf71,#acdb8b);
+}
+
+.wrapper{
+    height:100%;
+	width:80%;
+
+	margin:auto;
+	text-align:center;
+	background:#dec9d6;
+}
+
+.comfort{
+    font-family: comfortaa,cursive;
+}
+
+.head{
+    font-size:4.3em;
+    font-weight:700;
+}
+
+.subhead{
+    font-size:2.488em;
+    font-weight:300;
+}
+
+.temperature{
+    display:flex;
+}
+
+.temp{
+    width:50%;
+    text-align:right;
+}
+
+.unit{
+    flex:1;
+    display:inline-block;
+    text-align:left;
 }
