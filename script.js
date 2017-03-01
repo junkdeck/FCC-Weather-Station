@@ -11,11 +11,29 @@ function printError(err){
 }
 
 function weatherHandler(data){
+
+    var celsius = Math.round(data.main.temp);
+    var fahrenheit = Math.round(convertToF(celsius));
+
+    var curUnit = "celsius";
+
     $('.location').html(data.name+', '+data.sys.country);
-    $('.temp').html(data.main.temp);
+    $('.temp').html(celsius);
     $('.unit').html("C&deg;");
     $('.weatherDesc').html(data.weather[0].description);
     $('.iconSrc').attr("src","http://openweathermap.org/img/w/"+data.weather[0].icon+".png")
+
+    $('.temperature').on('click',function(){
+            if(curUnit === "celsius"){
+                $('.temp').html(fahrenheit);
+                $('.unit').html("F&deg;");
+                curUnit = "fahrenheit";
+            }else{
+                $('.temp').html(celsius);
+                $('.unit').html("C&deg;");
+                curUnit = "celsius";
+            }
+    });
 }
 
 function getLocation(){
@@ -28,6 +46,11 @@ function getLocation(){
         console.log(coords);
         getWeather(coords.lat,coords.lon);
     });
+}
+
+function convertToF(celsius){
+    var fahrenheit = ((celsius*(9/5)) + 32);
+    return fahrenheit;
 }
 
 function getWeather(lat,lon){
