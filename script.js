@@ -7,7 +7,7 @@ function error(err) {
 }
 
 function printError(err){
-    $("body").append(err);
+    $(".location").append(err);
 }
 
 function weatherHandler(data){
@@ -45,7 +45,7 @@ function getLocation(){
         };
         console.log(coords);
         getWeather(coords.lat,coords.lon);
-    });
+    }).fail(error("fuck"))
 }
 
 function convertToF(celsius){
@@ -64,5 +64,6 @@ function getWeather(lat,lon){
 
 $(document).ready(function(){
     getLocation();
+	console.log('fart');
 
 });
